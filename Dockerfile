@@ -27,6 +27,8 @@ ADD requirements.txt /deployment/requirements.txt
 # Add the script that will start everything.
 ADD start.py /deployment/start.py
 
+ADD ServicioREST /deployment/ServicioREST
+
 # Run VirtualEnv.
 RUN virtualenv /deployment/env/
 RUN /deployment/env/bin/pip install wheel
