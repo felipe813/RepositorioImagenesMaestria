@@ -3,14 +3,15 @@
 FROM ubuntu:18.04
 
 # Credits.
-MAINTAINER Guido Barbaglia "guido.barbaglia@gmail.com"
+MAINTAINER Guido Barbaglia
 
 # Update Ubuntu repositories.
 RUN apt-get update
 
 # Install Python.
-RUN apt-get install -y -q build-essential python-gdal python-simplejson
+#RUN apt-get install -y -q build-essential python-gdal python-simplejson
 RUN apt-get install -y python python3-pip wget
+RUN apt install python-pip
 #RUN apt-get install -y python-dev
 
 # Create a working directory.
