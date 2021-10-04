@@ -9,10 +9,11 @@ MAINTAINER Guido Barbaglia
 RUN apt-get update
 
 # Install Python.
-#RUN apt-get install -y -q build-essential python-gdal python-simplejson
-RUN apt-get install -y python python3-pip wget
-RUN apt-get install -y python-pip
-#RUN apt-get install -y python-dev
+RUN apt update && apt -y dist-upgrade \
+  && apt-get install -y python3-pip python3-dev \
+  && cd /usr/local/bin \
+  && ln -s /usr/bin/python3 python \
+  && pip3 install --upgrade pip
 
 # Create a working directory.
 RUN mkdir deployment
