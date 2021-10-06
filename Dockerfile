@@ -25,7 +25,7 @@ RUN pip install virtualenv
 ADD requirements.txt /deployment/requirements.txt
 
 # Add the script that will start everything.
-ADD start.py /deployment/start.py
+# ADD start.py /deployment/start.py
 
 ADD ServicioREST /deployment/ServicioREST
 

@@ -1,0 +1,32 @@
+Username: felipe813
+Password: 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
+
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install git
+sudo git config --global user.name "Nombre Apellido"
+sudo git config --global user.email email@domain.com
+sudo apt install curl
+sudo curl -sSL https://get.docker.com | sudo sh
+sudo mkdir proyecto
+cd proyecto
+sudo git clone https://github.com/felipe813/RepositorioImagenesMaestria.git
+cd RepositorioImagenesMaestria
+sudo git checkout master
+sudo docker build –tag “repositorioimagenes” .
+sudo docker run -d -p 8013:8013 servicioimagenes /deployment/env/bin/python /deployment/ServicioREST/main.py
+
+
+sudo apt-get install mysql-server
+sudo mysql -u'usuario' -p'contraseña'
+source repositorio_imagenes.db.sql
+
+#Actualizar archivo mysqld.cnf  que esta en etc/mysql/mysql.conf.d/ , cambiar bind-address = 127.0.0.1 a bind-address = 0.0.0.0
+
+sudo service mysql restart
+
+"ip a list" , para saber direccion ip-> inet .... scope global eth (172.18.43.30)
+#Actualizar archivo config.py a dirección de la máquina
+
+//https://stackoverflow.com/questions/19101243/error-1130-hy000-host-is-not-allowed-to-connect-to-this-mysql-server
+
