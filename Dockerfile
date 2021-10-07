@@ -1,9 +1,8 @@
 # Create a container from Ubuntu.
-#https://guido-barbaglia.blog/docker/
 FROM ubuntu:18.04
 
 # Credits.
-MAINTAINER Guido Barbaglia
+MAINTAINER Andrés Sánchez
 
 # Update Ubuntu repositories.
 RUN apt-get update
@@ -24,9 +23,6 @@ RUN pip install virtualenv
 # Add requirements file.
 ADD requirements.txt /deployment/requirements.txt
 
-# Add the script that will start everything.
-# ADD start.py /deployment/start.py
-
 ADD ServicioREST /deployment/ServicioREST
 
 # Run VirtualEnv.
@@ -34,8 +30,8 @@ RUN virtualenv /deployment/env/
 RUN /deployment/env/bin/pip install wheel
 RUN /deployment/env/bin/pip install -r /deployment/requirements.txt
 
-ARG USR=root
-ARG PASS=bartolomeo
-ARG HOST=localhost
+ARG USR
+ARG PASS
+ARG HOST
 
-ENTRYPOINT ["python", "main.py",USR,PASS,HOST]
+ENTRYPOINT deployment/env/bin/python deployment/ServicioREST/main.py ${USR} ${PASS} ${HOST}
