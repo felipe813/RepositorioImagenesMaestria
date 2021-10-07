@@ -1,4 +1,4 @@
-DROP DATABASE base_de_datos;
+DROP DATABASE repositorio;
 CREATE DATABASE repositorio;
 USE repositorio ;
 
