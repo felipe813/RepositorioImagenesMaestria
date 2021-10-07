@@ -1,5 +1,5 @@
 Username: felipe813
-Password: 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
+Password: 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
 
 ip a list 
 #para saber direccion ip-> inet .... scope global eth (172.18.0.2)
@@ -17,7 +17,7 @@ sudo git clone https://github.com/felipe813/RepositorioImagenesMaestria.git
 cd RepositorioImagenesMaestria
 sudo git checkout master
 sudo docker build –t servicioimagenes  .
-sudo docker run -e USR=root -e PASS=bartolomeo -e HOST=172.18.0.2 -d -p 8013:8013 servicioimagenes /deployment/env/bin/python /deployment/ServicioREST/main.py
+sudo docker run -e USR=root -e PASS=bartolomeo -e HOST=172.18.0.2 -d -p 8013:8013 servicioimagenes 
 
 
 sudo apt-get install mysql-server

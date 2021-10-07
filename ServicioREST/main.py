@@ -7,7 +7,6 @@ from dao import DAO
 import sys
 
 
-
 def create_app(enviroment):
     app = Flask(__name__)
     app.config.from_object(enviroment)
@@ -39,7 +38,10 @@ def get_imagen(id):
     if imagen is None:
         return jsonify({'message': ' La imagen no existe'}), 404
 
-    return jsonify({'Imagen': imagen.json() })
+    print(imagen.Fuente)
+    print(imagen.json())
+
+    return jsonify({'Imágen': imagen.json() })
 
 @app.route('/api/imagenes/', methods=['POST'])
 def create_imagen():
@@ -361,6 +363,7 @@ def actualizar_ftp():
         return jsonify({'message': 'Bad request'}), 400
 
 if __name__ == '__main__':
+    app.config['JSON_AS_ASCII'] = False
     if(len(sys.argv) >= 4):
         usuario = sys.argv[1]
         passs = sys.argv[2]
