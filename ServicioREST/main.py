@@ -38,9 +38,6 @@ def get_imagen(id):
     if imagen is None:
         return jsonify({'message': ' La imagen no existe'}), 404
 
-    print(imagen.Fuente)
-    print(imagen.json())
-
     return jsonify({'Imágen': imagen.json() })
 
 @app.route('/api/imagenes/', methods=['POST'])
