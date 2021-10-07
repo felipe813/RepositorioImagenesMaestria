@@ -4,13 +4,14 @@ from flask import request
 from config import config
 from models import db
 from dao import DAO
+import sys
 
 
 
 def create_app(enviroment):
     app = Flask(__name__)
     app.config.from_object(enviroment)
-
+    
     with app.app_context():
         db.init_app(app)
         #db.create_all()
@@ -360,6 +361,12 @@ def actualizar_ftp():
         return jsonify({'message': 'Bad request'}), 400
 
 if __name__ == '__main__':
-    #app.run(debug=True)
-    #app.run(host='0.0.0.0', port=16790)
-    app.run('0.0.0.0',port=8013)
+    if(len(sys.argv) >= 4):
+        usuario = sys.argv[1]
+        passs = sys.argv[2]
+        host = sys.argv[3]
+        app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://'+usuario+':'+passs+'@'+host+'/repositorio'
+        app.run('0.0.0.0',port=8013)
+    else:
+        app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:bartolomeo@localhost/repositorio'
+        app.run(debug=True)

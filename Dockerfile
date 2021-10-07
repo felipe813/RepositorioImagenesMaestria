@@ -33,3 +33,9 @@ ADD ServicioREST /deployment/ServicioREST
 RUN virtualenv /deployment/env/
 RUN /deployment/env/bin/pip install wheel
 RUN /deployment/env/bin/pip install -r /deployment/requirements.txt
+
+ARG USR=root
+ARG PASS=bartolomeo
+ARG HOST=localhost
+
+ENTRYPOINT ["python", "main.py",USR,PASS,HOST]

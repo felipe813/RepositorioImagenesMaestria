@@ -4,13 +4,9 @@ class Config:
     pass
 
 class DevelopmentConfig(Config):
-    DEBUG = True
-
-   
+    DEBUG = True   
     #SQLALCHEMY_DATABASE_URI = 'sqlite:///repositorio_imagenes.db'
-
-    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:bartolomeo@localhost/repositorio'
-
+    #SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:bartolomeo@localhost/repositorio'
     #params = urllib.parse.quote_plus("DRIVER={SQL Server Native Client 11.0};SERVER=Felipe;DATABASE=ProyectoTesis;UID=sa;PWD=felipe")
     #SQLALCHEMY_DATABASE_URI = "mssql+pyodbc:///?odbc_connect=%s" % params
     #SQLALCHEMY_TRACK_MODIFICATIONS = False
