@@ -16,8 +16,8 @@ cd proyecto
 sudo git clone https://github.com/felipe813/RepositorioImagenesMaestria.git
 cd RepositorioImagenesMaestria
 sudo git checkout master
-sudo docker build –t servicioimagenes  .
-sudo docker run -e USR=root -e PASS=bartolomeo -e HOST=172.18.0.2 -d -p 8013:8013 servicioimagenes 
+sudo docker build –t servicioimagenes .
+sudo docker run -e USR=rest -e PASS=bartolomeo -e HOST=172.18.0.1 -d -p 8013:8013 --restart always servicioimagenes 
 
 
 sudo apt-get install mysql-server
@@ -39,5 +39,8 @@ FLUSH PRIVILEGES;
 #Bajar cambios de GIT
 git fetch
 git reset --hard origin/master
+
+
+
 
 
